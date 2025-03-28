@@ -1,4 +1,4 @@
-# 🏢 AgileFlow (Project Management System, Jira Clone)
+# 🏢 AgileFlow (Project Management System, Jira Clone) - Next.js Full Stack
 
 **AgileFlow** is a **powerful B2B project management system** designed to **streamline agile workflows, improve team collaboration, and boost productivity**.
 
@@ -135,4 +135,5 @@ We welcome contributions from the community! To contribute:
 4. Push the branch and create a Pull Request.
 
 Give this repository a ⭐️ on [GitHub](https://github.com/kumaraswini-11/agile-flow).
+
 For more details, see the [CONTRIBUTING](CONTRIBUTING.md) file.
