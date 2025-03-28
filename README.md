@@ -1,6 +1,6 @@
 # 🏢 AgileFlow (Project Management System, Jira Clone)
 
-**AgileFlow** is a **powerful project management system** designed to **streamline agile workflows, improve team collaboration, and boost productivity**.
+**AgileFlow** is a **powerful B2B project management system** designed to **streamline agile workflows, improve team collaboration, and boost productivity**.
 
 Inspired by industry-leading tools, AgileFlow offers a **feature-rich environment** tailored for agile teams, including **task management, sprint planning, and real-time progress tracking**.
 
@@ -134,4 +134,5 @@ We welcome contributions from the community! To contribute:
 3. Commit your changes with a clear message.
 4. Push the branch and create a Pull Request.
 
+Give this repository a ⭐️ on [GitHub](https://github.com/kumaraswini-11/agile-flow).
 For more details, see the [CONTRIBUTING](CONTRIBUTING.md) file.
