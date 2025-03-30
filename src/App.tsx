@@ -1,12 +1,12 @@
-import {ModeToggle} from "./components/mode-toggle";
+import {BrowserRouter} from "react-router";
+import {AuthForm} from "./components/auth/auth-form";
 
-function App() {
+export default function App() {
+  // return <RootRoutes />;
+
   return (
-    <>
-      <ModeToggle />
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <BrowserRouter>
+      <AuthForm formType="signin" />
+    </BrowserRouter>
   );
 }
-
-export default App;

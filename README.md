@@ -116,6 +116,10 @@ Ensure accessibility across all devices and work offline.
 5. **[ProjeQtOr](https://www.projeqtor.org/)** – A quality-based project organizer offering features like task management, risk management, and budget tracking, suitable for managing multiple projects with an emphasis on quality management.
 6. **[ProjectLibre](https://www.projectlibre.com/)** – An open-source alternative to Microsoft Project, providing project management solutions with features like Gantt charts, resource allocation, and compatibility with Microsoft Project files.
 7. **[Kanboard](https://kanboard.org/)** – A minimalist Kanban board application focusing on simplicity and efficiency, allowing for easy visualization of tasks and projects with drag-and-drop functionality.
+8. **[shadcn/ui Theme]** -
+   - [shadcn/ui Theme - 1](https://github.com/kiliman/shadcn-custom-theme?tab=readme-ov-file#templatejson)
+   - [shadcn/ui Theme - 2](https://www.tinte.dev/vscode)
+   - [shadcn/ui Theme - 3](https://gradient.page/tools/shadcn-ui-theme-generator)
 
 ## 📜 License
 

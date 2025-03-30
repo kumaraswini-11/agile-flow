@@ -1,21 +1,29 @@
 import {AudioWaveform} from "lucide-react";
 import {Link, LinkProps} from "react-router";
 
-interface LogoProps extends LinkProps {
+interface AppLogoProps extends Omit<LinkProps, "to"> {
   url?: string;
+  text?: string;
+  flag?: boolean;
+  iconSize?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({url = "/", ...props}) => {
+export const AppLogo: React.FC<AppLogoProps> = ({
+  url = "/",
+  text = "Agile Flow",
+  flag = true,
+  iconSize = "4",
+  ...props
+}) => {
   return (
-    <div className="flex items-center justify-center sm:justify-start">
-      <Link
-        {...props}
-        to={url}
-        aria-label="Home">
-        <div className="bg-primary text-primary-foreground flex h-6 w-6 items-center justify-center rounded-md">
-          <AudioWaveform className="size-4" />
-        </div>
-      </Link>
-    </div>
+    <Link
+      {...props}
+      to={url}
+      aria-label="Home">
+      <div className="bg-primary text-primary-foreground flex h-6 w-6 items-center justify-center rounded-md">
+        <AudioWaveform className={`size-${iconSize}`} />
+      </div>
+      {flag && <span>{text}</span>}
+    </Link>
   );
 };

@@ -1,5 +1,6 @@
 import {createRoot} from "react-dom/client";
 import {Toaster} from "sonner";
+import {NuqsAdapter} from "nuqs/adapters/react";
 import {ThemeProvider} from "next-themes";
 
 import "./index.css";
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")!).render(
     enableSystem
     storageKey="vite-ui-theme">
     <QueryProvider>
-      <App />
+      <NuqsAdapter>
+        <App />
+      </NuqsAdapter>
       <Toaster richColors />
     </QueryProvider>
   </ThemeProvider>

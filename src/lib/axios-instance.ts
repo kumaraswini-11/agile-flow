@@ -2,17 +2,20 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import axios, {type AxiosInstance as AxiosInstanceType} from "axios";
 
+import {BaseUrl} from "@/constants";
+
 export interface CustomError extends Error {
   errorCode?: string;
 }
 
 // Create an Axios instance with custom configurations.
 const axiosInstance: AxiosInstanceType = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL as string,
+  baseURL: BaseUrl,
   withCredentials: true, // Include credentials in requests.
   timeout: 1000, // Timeout duration in milliseconds.
   headers: {
     "Content-Type": "application/json",
+    Accept: "application/json",
   },
 });
 
