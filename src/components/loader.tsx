@@ -16,12 +16,12 @@ export default function Loader({
       className="flex h-full items-center justify-center pt-8"
       aria-live="polite">
       <Loader2
-        className="animate-spin"
+        className="mr-3 size-5 animate-spin"
         width={size}
         height={size}
         stroke={color}
       />
-      <span className="ml-2 text-neutral-500">{message}</span>
+      <span className="text-foreground ml-2">{message}</span>
     </div>
   );
 }

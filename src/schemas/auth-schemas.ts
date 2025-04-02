@@ -10,7 +10,7 @@ const emailSchema = z
 const passwordSchema = z
   .string()
   .trim()
-  .min(8, {message: "Password must be at least 8 characters"})
+  .min(1, {message: "Password must be at least 1 characters"})
   .max(128, {message: "Password cannot exceed 128 characters"});
 
 export const SignInSchema = z.object({

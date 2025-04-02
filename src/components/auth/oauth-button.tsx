@@ -12,7 +12,7 @@ interface OAuthButtonProps {
   redirectURL: string;
   handleOnClick: React.MouseEventHandler<HTMLButtonElement>;
   disabled: boolean;
-  "aria-label": string;
+  ariaLabel: string;
 }
 
 export const OAuthButton = ({
@@ -23,6 +23,7 @@ export const OAuthButton = ({
   handleOnClick,
   className,
   disabled,
+  ariaLabel,
 
   ...props
 }: Partial<OAuthButtonProps> & {className?: string}) => {
@@ -34,20 +35,17 @@ export const OAuthButton = ({
     }
   };
 
-  const providerName = provider ? provider.charAt(0).toUpperCase() + provider.slice(1) : "";
-  const ariaLabel = `${label} with ${providerName}`;
-
   return (
     <Button
       onClick={onClickHandler}
-      className={cn("flex items-center justify-center gap-2", className)}
+      className={cn("flex items-center justify-center gap-3", className)}
       variant="outline"
       size="lg"
       disabled={disabled}
       aria-label={ariaLabel}
       {...props}>
-      {Icon && <Icon className="h-6 w-6 text-gray-800" />}
-      {label} with {providerName}
+      {Icon && <Icon className="size-5 text-gray-900" />}
+      <span className="capitalize">{label ?? provider}</span>
     </Button>
   );
 };

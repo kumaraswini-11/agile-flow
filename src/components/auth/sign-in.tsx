@@ -5,8 +5,9 @@ import {z} from "zod";
 import {FcGoogle} from "react-icons/fc";
 import {FaGithub} from "react-icons/fa";
 import {Link} from "react-router";
-import {Eye, EyeOff} from "lucide-react";
+import {Eye, EyeOff, Loader2} from "lucide-react";
 import {useMutation} from "@tanstack/react-query";
+import {AnimatePresence, motion} from "framer-motion";
 
 import {Button} from "@/components/ui/button";
 import {
@@ -22,10 +23,18 @@ import {Form, FormControl, FormField, FormItem, FormMessage} from "@/components/
 import {cn} from "@/lib/utils";
 import {OAuthButton} from "./oauth-button";
 import {BaseUrl} from "@/constants";
-import {signInMutationFn} from "./use-auth";
-import {SignInSchema} from "./auth-schemas";
+import {signInMutationFn} from "../../hooks/use-auth";
+import {SignInSchema} from "../../schemas/auth-schemas";
+import {ROUTES} from "@/routes/routes-paths";
 
 export function SignInForm({className, ...props}: React.ComponentPropsWithoutRef<"div">) {
+  // Animation variants for the eye icon toggle
+  const iconVariants = {
+    hidden: {opacity: 0, scale: 0.8},
+    visible: {opacity: 1, scale: 1, transition: {duration: 0.2, ease: "easeInOut"}},
+    exit: {opacity: 0, scale: 0.8, transition: {duration: 0.2, ease: "easeInOut"}},
+  };
+
   const [showPassword, setShowPassword] = useState(false);
 
   const signInForm = useForm({
@@ -52,15 +61,19 @@ export function SignInForm({className, ...props}: React.ComponentPropsWithoutRef
       {...props}>
       <Card className="shadow-md">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-2xl font-semibold tracking-tight">Welcome back</CardTitle>
-          <CardDescription>Signin with your Google or GitHub account</CardDescription>
+          <CardTitle className="text-2xl font-semibold tracking-tight not-dark:text-gray-900">
+            Sign In
+          </CardTitle>
+          <CardDescription className="not-dark:text-gray-600">
+            Enter your credentials to access your account
+          </CardDescription>
         </CardHeader>
 
         <CardContent className="pb-4">
-          {/* OAuth Sign In */}
-          <div className="flex flex-col gap-4">
+          {/* OAuth SignIn Buttons */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <OAuthButton
-              label="Sign in"
+              label="Google"
               provider="google"
               icon={FcGoogle}
               redirectURL={`${BaseUrl}/auth/google`}
@@ -69,7 +82,7 @@ export function SignInForm({className, ...props}: React.ComponentPropsWithoutRef
               aria-label="Sign in with Google"
             />
             <OAuthButton
-              label="Sign in"
+              label="GitHub"
               provider="github"
               icon={FaGithub}
               redirectURL={`${BaseUrl}/auth/github`}
@@ -81,8 +94,8 @@ export function SignInForm({className, ...props}: React.ComponentPropsWithoutRef
 
           {/* Separator */}
           <div className="after:border-border relative my-4 text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-            <span className="bg-background text-muted-foreground relative z-10 px-2">
-              Or continue with
+            <span className="bg-background text-muted-foreground relative z-10 px-2 not-dark:text-gray-500">
+              or
             </span>
           </div>
 
@@ -137,11 +150,27 @@ export function SignInForm({className, ...props}: React.ComponentPropsWithoutRef
                           className="absolute top-0 right-0 h-10 w-10 px-3"
                           onClick={() => setShowPassword(!showPassword)}
                           aria-label={showPassword ? "Hide password" : "Show password"}>
-                          {showPassword ? (
-                            <EyeOff className="text-muted-foreground h-4 w-4" />
-                          ) : (
-                            <Eye className="text-muted-foreground h-4 w-4" />
-                          )}
+                          <AnimatePresence mode="popLayout">
+                            {showPassword ? (
+                              <motion.div
+                                key="eye-off"
+                                variants={iconVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit">
+                                <EyeOff className="text-muted-foreground size-[18px]" />
+                              </motion.div>
+                            ) : (
+                              <motion.div
+                                key="eye"
+                                variants={iconVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit">
+                                <Eye className="text-muted-foreground size-[18px]" />
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </Button>
                       </div>
                     </FormControl>
@@ -161,10 +190,17 @@ export function SignInForm({className, ...props}: React.ComponentPropsWithoutRef
 
               <Button
                 type="submit"
-                className="mt-2 w-full"
+                className={cn("mt-2 w-full", "flex items-center justify-center gap-2")}
                 size="lg"
                 disabled={isPending}>
-                {isPending ? "Signing in..." : "Sign in"}
+                {isPending ? (
+                  <>
+                    <Loader2 className="size-5 animate-spin" />
+                    Signing in...
+                  </>
+                ) : (
+                  "Sign in"
+                )}
               </Button>
             </form>
           </Form>
@@ -174,7 +210,7 @@ export function SignInForm({className, ...props}: React.ComponentPropsWithoutRef
           <div className="text-center text-sm">
             Don&apos;t have an account?{" "}
             <Link
-              to="/signup"
+              to={ROUTES.SIGN_UP}
               className="text-primary font-medium hover:underline hover:underline-offset-4">
               Sign up
             </Link>

@@ -1,12 +1,14 @@
 import {BrowserRouter} from "react-router";
-import {AuthForm} from "./components/auth/auth-form";
+import AppLayout from "./layouts/app-layout";
+
+// export default function App() {
+//   return <RouterProvider router={router} />;
+// }
 
 export default function App() {
-  // return <RootRoutes />;
-
   return (
     <BrowserRouter>
-      <AuthForm formType="signin" />
+      <AppLayout />
     </BrowserRouter>
   );
 }

@@ -1,18 +1,16 @@
+import {Workspace} from "./workspace-types";
+
 export interface User {
   _id: string;
   name: string;
   email: string;
-  profilePicture: string | null;
+  avatarUrl: string;
   isActive: boolean;
-  lastLogin: Date | null;
-  createdAt: Date;
-  updatedAt: Date;
-  currentWorkspace: {
-    _id: string;
-    name: string;
-    owner: string;
-    inviteCode: string;
-  };
+  provider: "credential" | "google" | "github";
+  lastLogin?: Date;
+  createdAt: string;
+  updatedAt: string;
+  currentWorkspace: Workspace;
 }
 
 export interface CurrentUserResponse {
@@ -24,6 +22,7 @@ export interface SignInRequest {
   email: string;
   password: string;
 }
+
 export interface SignInResponse {
   message: string;
   user: {
