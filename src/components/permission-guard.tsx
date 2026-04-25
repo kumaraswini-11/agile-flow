@@ -1,7 +1,7 @@
 import React from "react";
 
 import {PermissionType} from "@/constants";
-import useAuthStore from "@/store/user";
+import useAuthStore from "@/store";
 
 interface PermissionsGuardProps {
   requiredPermission: PermissionType;

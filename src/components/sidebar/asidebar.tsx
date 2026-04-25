@@ -29,13 +29,13 @@ import {AppLogo} from "../logo";
 import {TooltipProvider} from "../ui/tooltip";
 import {ScrollArea} from "../ui/scroll-area";
 import {Separator} from "../ui/separator";
-import {Badge} from "../ui/badge";
 import {useWorkspaceId} from "@/hooks/use-workspace-id";
 import {WorkspaceSwitcher} from "./workspace-switcher";
 import {NavMain} from "./nav-main";
-import useAuthStore from "@/store/user";
+import useAuthStore from "@/store";
 import {SignOutDialog} from "./sign-out-dialog";
 import {NavProjects} from "./nav-projects";
+import {getUserInitials} from "@/lib/utils";
 
 export const Asidebar = () => {
   const [isSignOutDialogOpen, setIsSignOutDialogOpen] = useState(false);
@@ -43,12 +43,6 @@ export const Asidebar = () => {
   const {open} = useSidebar();
   const workspaceId = useWorkspaceId();
   const {user} = useAuthStore();
-
-  const getUserInitials = (name?: string): string => {
-    if (!name) return "";
-    const nameParts = name.split(" ");
-    return `${nameParts[0]?.[0] || ""}${nameParts[1]?.[0] || ""}`.toUpperCase();
-  };
 
   return (
     <>

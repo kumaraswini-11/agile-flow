@@ -1,7 +1,7 @@
 import {Navigate, Outlet, useLocation} from "react-router";
 
 import {ROUTES} from "./routes-paths";
-import useAuthStore from "@/store/user";
+import useAuthStore from "@/store";
 
 interface RouteGuardProps {
   requiresAuth?: boolean; // If true, only authenticated users can access

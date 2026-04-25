@@ -1,0 +1,105 @@
+# Dev Docs
+
+```bash
+agile-flow/
+│── public/                   # Static assets (favicon, robots.txt, vite.svg)
+│── src/                      # Main application source code
+│   ├── assets/               # Static files like images, icons, fonts
+│   │   ├── icons/            # Icons used in the project
+│   │   ├── images/           # Image assets
+│   │   ├── styles/           # Global styles (CSS/SASS/Tailwind)
+│   │   │   ├── react.svg
+│   │
+│   ├── components/           # Reusable UI components (Named Exports)
+│   │   ├── header/           # Header component
+│   │   │   ├── header.tsx
+│   │   ├── sidebar/          # Sidebar component
+│   │   ├── ui/               # Contains all shadcn/ui components
+|   |   ├── loader.tsx
+│   │   ├── logo.tsx
+│   │   ├── mode-toggle.tsx
+│   │   ├── not-found.tsx
+│   │   ├── index.ts          # Exports all components
+│   │
+│   ├── config/               # App configuration (Default Exports)
+│   │   ├── axios-config.ts   # Axios interceptors for API calls
+│   │   ├── constants.ts      # Application-wide constants
+│   │   ├── index.ts          # Exports all configurations
+│   │   ├── react-query.ts    # React Query Configuration
+│   │
+│   ├── hooks/                # Custom Hooks (Named Exports)
+│   │   ├── api/
+│   │   │   ├── useAuth.ts
+│   │   │   ├── useTasks.ts
+│   │   │   ├── useWorkspace.ts
+│   │   ├── useDebounce.ts
+│   │   ├── usePermissions.ts
+│   │   ├── useToggle.ts
+│   │   ├── index.ts          # Exports all hooks
+│   │
+│   ├── layouts/              # Page layouts (Default Exports)
+│   │   ├── AppLayout.tsx
+│   │   ├── BaseLayout.tsx
+│   │   ├── index.ts          # Exports all layouts
+│   │
+│   ├── pages/                # Page components (Lazy Loaded)
+│   │   ├── auth/             # Authentication pages
+│   │   │   ├── ForgotPassword.tsx
+│   │   │   ├── SignIn.tsx
+│   │   │   ├── SignUp.tsx
+│   │   ├── workspace/        # Workspace-related pages
+│   │   │   ├── Members.tsx
+│   │   │   ├── ProjectDetails.tsx
+│   │   │   ├── Settings.tsx
+│   │   │   ├── Tasks.tsx
+│   │   │   ├── WorkspaceDashboard.tsx
+│   │   ├── index.ts          # Exports all pages
+│   │
+│   ├── routes/               # Routing (Default + Named Exports)
+│   │   ├── auth-route.tsx    # Authentication route guard
+│   │   ├── index.ts          # Exports all routes
+│   │   ├── protected-route.tsx # Protected route guard
+│   │   ├── route-config.ts   # Route definitions
+│   │
+│   ├── services/             # API Calls using Axios (Named Exports)
+│   │   ├── authService.ts
+│   │   ├── index.ts          # Exports all services
+│   │   ├── taskService.ts
+│   │   ├── workspaceService.ts
+│   │
+│   ├── store/                # Zustand Store (Named Exports)
+│   │   ├── index.ts          # Exports all stores
+│   │   ├── useAuthStore.ts
+│   │   ├── useTaskStore.ts
+│   │   ├── useWorkspaceStore.ts
+│   │
+│   ├── types/                # TypeScript types (Named Exports)
+│   │   ├── api.types.ts
+│   │   ├── auth.types.ts
+│   │   ├── index.ts          # Exports all types
+│   │
+│   ├── utils/                # Utility functions (Named Exports)
+│   │   ├── formatDate.ts
+│   │   ├── index.ts          # Exports all utils
+│   │   ├── validateEmail.ts
+│   │
+│   ├── App.tsx               # Main React Component
+│   ├── index.css             # Global styles
+│   ├── main.tsx              # Entry point (renders App.tsx)
+│   ├── vite-env.d.ts         # TypeScript environment configuration
+│
+│── .env                      # Environment variables
+│── .env.sample               # Sample environment variables
+│── .eslintrc.config.js       # ESLint Configuration
+│── .gitignore                # Git ignore file
+│── components.json           # UI component configuration
+│── index.html                # Main HTML file
+│── package.json              # Dependencies and scripts
+│── prettier.config.js        # Prettier Configuration
+│── README.md                 # Documentation
+│── tsconfig.app.json         # TypeScript app-specific configuration
+│── tsconfig.json             # Global TypeScript configuration
+│── tsconfig.node.json        # TypeScript node-specific configuration
+│── vite.config.ts            # Vite Configuration
+
+```

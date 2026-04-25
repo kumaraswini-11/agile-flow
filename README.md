@@ -120,6 +120,11 @@ Ensure accessibility across all devices and work offline.
    - [shadcn/ui Theme - 1](https://github.com/kiliman/shadcn-custom-theme?tab=readme-ov-file#templatejson)
    - [shadcn/ui Theme - 2](https://www.tinte.dev/vscode)
    - [shadcn/ui Theme - 3](https://gradient.page/tools/shadcn-ui-theme-generator)
+   - [shadcn/ui Theme - 4](https://ui.jln.dev/)
+   - [shadcn/ui Theme - 5](https://ui.pub/x/theme-gen?s=08)
+   - [shadcn/ui Theme - 6](https://tweakcn.com/editor/theme?s=08)
+   - [shadcn/ui Theme - 7](https://matsu-theme.vercel.app/?s=08)
+   - [shadcn/ui Theme - 8](https://ouassim.tech/notes/how-to-add-a-theme-selector-to-your-nextjs-app/?s=08)
 
 ## 📜 License
 
@@ -127,7 +132,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## 📧 Contact
 
-For inquiries or support, reach out at: **[info@agileflow.com](mailto:info@agileflow.com)**
+For inquiries or support, reach out at: **[support@agileflow.com](mailto:support@agileflow.com)**
 
 ## 🤝 Contributing
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Slot} from "@radix-ui/react-slot";
 import {VariantProps, cva} from "class-variance-authority";
-import {PanelLeftIcon} from "lucide-react";
+import {ChevronsLeft, ChevronsRight} from "lucide-react";
 
 import {useIsMobile} from "@/hooks/use-mobile";
 import {cn} from "@/lib/utils";
@@ -241,7 +241,7 @@ function Sidebar({
 }
 
 function SidebarTrigger({className, onClick, ...props}: React.ComponentProps<typeof Button>) {
-  const {toggleSidebar} = useSidebar();
+  const {open, toggleSidebar} = useSidebar();
 
   return (
     <Button
@@ -255,7 +255,7 @@ function SidebarTrigger({className, onClick, ...props}: React.ComponentProps<typ
         toggleSidebar();
       }}
       {...props}>
-      <PanelLeftIcon />
+      {open ? <ChevronsRight className="size-5.5" /> : <ChevronsLeft className="size-5.5" />}
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );

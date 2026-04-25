@@ -14,7 +14,7 @@ import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
 import {useWorkspaceId} from "@/hooks/use-workspace-id";
 import {cn} from "@/lib/utils";
 import {Permissions} from "@/constants";
-import {useAuthActions} from "@/store/user";
+import {useAuthActions} from "@/store";
 
 interface NavItem {
   title: string;

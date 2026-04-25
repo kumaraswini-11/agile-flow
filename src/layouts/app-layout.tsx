@@ -13,8 +13,9 @@ export default function AppLayout() {
 
   return (
     <SidebarProvider
-      defaultOpen={sidebarOpen}
-      onOpenChange={setSidebarOpen}>
+    // defaultOpen={sidebarOpen}
+    // onOpenChange={setSidebarOpen}
+    >
       {/* Sidebar component */}
       <Asidebar />
 
